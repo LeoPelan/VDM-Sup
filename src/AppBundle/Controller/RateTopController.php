@@ -3,10 +3,10 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-class RateController extends Controller
+class RateTopController extends Controller
 {
     /**
-     * @Route("/ratevdm", name="top")
+     * @Route("/rateTopvdm", name="top")
      */
     public function rateAction(Request $request)
     {
@@ -15,7 +15,7 @@ class RateController extends Controller
         ->getManager()
         ->getRepository('AppBundle:VdmPost');
         $listTopRated = $repository->findBy(array(), array('isLiked' => 'DESC'));
-      return $this->render('rate.html.twig', array(
+      return $this->render('rateTop.html.twig', array(
         "toplist" => $listTopRated
       ));
     }
