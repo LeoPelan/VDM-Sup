@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  {% block nav %}
+    <nav>
+      <div>
+        <ul>
+           <li><a href="{{ path('homepage') }}">VDM Feed</a></li>
+           <li><a href="form">Add a VDM</a></li>
+           <li><a href="{{ path('top') }}">Top 30</a></li>
+        </ul>
+      </div>
+    </nav>
+  {% endblock %}
+  <div class="container">
+  {% block container %}
+    {% for advert in list %}
+      <div>
+      <h2>Title : {{ advert.title }}</h2>
+      <h3>Author : {{ advert.name }}</h3>
+      <p>{{ advert.content }}</p>
+        <div>
+        <div id="isunliked" style="height:30px;color:red;background-repeat:no-repeat;background-image: url(https://cdn3.iconfinder.com/data/icons/pidginsmilies/bad.png);">{{ advert.isUnliked}}</div>
+        <div id="isliked" style="height:30px;color:green;background-repeat:no-repeat;background-image: url(https://cdn3.iconfinder.com/data/icons/pidginsmilies/good.png);">{{ advert.isLiked}}</div>
+          <div>
+            <button type="button">Dislike</button>
+            <button type="button">Like</button>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  {% endblock %}
+  </div>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+
+</style>
+{% endblock %}

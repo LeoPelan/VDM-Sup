@@ -1,0 +1,19 @@
+{% extends 'default/index.html.twig' %}
+
+{% block container %}
+  {% for advert in toplist %}
+    <div>
+      <h2>Title : {{ advert.title }}</h2>
+      <h3>Author : {{ advert.name }}</h3>
+      <p>{{ advert.content }}</p>
+      <div>
+        <div id="isunliked" style="height:30px;color:red;background-repeat:no-repeat;background-image: url(https://cdn3.iconfinder.com/data/icons/pidginsmilies/bad.png);">{{ advert.isUnliked}}</div>
+        <div id="isliked" style="height:30px;color:green;background-repeat:no-repeat;background-image: url(https://cdn3.iconfinder.com/data/icons/pidginsmilies/good.png);">{{ advert.isLiked}}</div>
+        <div>
+          <button type="button">Dislike</button>
+          <button type="button">Like</button>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}
